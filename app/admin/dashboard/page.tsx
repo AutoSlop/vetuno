@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MembershipCard from "../../components/MembershipCard";
 
 const kpis = [
   { label: "Clínicas activas", value: "24", change: "+3 este mes", color: "bg-teal/10 text-teal" },
@@ -91,6 +92,19 @@ export default function AdminDashboard() {
               </Link>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Mi membresía */}
+      <div className="rounded-xl border border-gray-200 bg-white shadow-sm">
+        <div className="border-b border-gray-100 px-6 py-4">
+          <h2 className="text-base font-semibold text-text">Mi membresía</h2>
+          <p className="mt-1 text-sm text-text-light">
+            Consulta tu credencial digital de Vetuno. Puedes descargarla o compartirla en cualquier momento.
+          </p>
+        </div>
+        <div className="p-6">
+          <MembershipCard />
         </div>
       </div>
     </div>

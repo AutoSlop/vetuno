@@ -114,6 +114,82 @@ export default function MembershipCard() {
             </div>
           </div>
         </div>
+        {/* QR Code section */}
+        <div className="border-t border-gray-100 bg-white px-6 py-5">
+          <div className="flex items-center gap-4">
+            {/* Simulated QR code */}
+            <div className="shrink-0 rounded-lg border border-gray-200 bg-white p-2">
+              <svg width="64" height="64" viewBox="0 0 64 64" className="text-text">
+                <rect x="0" y="0" width="8" height="8" fill="currentColor"/>
+                <rect x="8" y="0" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="16" y="0" width="8" height="8" fill="currentColor"/>
+                <rect x="24" y="0" width="8" height="8" fill="currentColor"/>
+                <rect x="32" y="0" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="40" y="0" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="48" y="0" width="8" height="8" fill="currentColor"/>
+                <rect x="56" y="0" width="8" height="8" fill="currentColor"/>
+                <rect x="0" y="8" width="8" height="8" fill="currentColor"/>
+                <rect x="16" y="8" width="8" height="8" fill="currentColor"/>
+                <rect x="32" y="8" width="8" height="8" fill="currentColor"/>
+                <rect x="48" y="8" width="8" height="8" fill="currentColor"/>
+                <rect x="56" y="8" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="0" y="16" width="8" height="8" fill="currentColor"/>
+                <rect x="8" y="16" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="16" y="16" width="8" height="8" fill="currentColor"/>
+                <rect x="24" y="16" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="32" y="16" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="40" y="16" width="8" height="8" fill="currentColor"/>
+                <rect x="48" y="16" width="8" height="8" fill="currentColor"/>
+                <rect x="56" y="16" width="8" height="8" fill="currentColor"/>
+                <rect x="0" y="24" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="8" y="24" width="8" height="8" fill="currentColor"/>
+                <rect x="16" y="24" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="24" y="24" width="8" height="8" fill="currentColor"/>
+                <rect x="32" y="24" width="8" height="8" fill="currentColor"/>
+                <rect x="40" y="24" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="48" y="24" width="8" height="8" fill="currentColor"/>
+                <rect x="56" y="24" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="0" y="32" width="8" height="8" fill="currentColor"/>
+                <rect x="8" y="32" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="16" y="32" width="8" height="8" fill="currentColor"/>
+                <rect x="24" y="32" width="8" height="8" fill="currentColor"/>
+                <rect x="32" y="32" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="40" y="32" width="8" height="8" fill="currentColor"/>
+                <rect x="48" y="32" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="56" y="32" width="8" height="8" fill="currentColor"/>
+                <rect x="0" y="40" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="8" y="40" width="8" height="8" fill="currentColor"/>
+                <rect x="16" y="40" width="8" height="8" fill="currentColor"/>
+                <rect x="24" y="40" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="32" y="40" width="8" height="8" fill="currentColor"/>
+                <rect x="40" y="40" width="8" height="8" fill="currentColor"/>
+                <rect x="48" y="40" width="8" height="8" fill="currentColor"/>
+                <rect x="56" y="40" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="0" y="48" width="8" height="8" fill="currentColor"/>
+                <rect x="8" y="48" width="8" height="8" fill="currentColor"/>
+                <rect x="16" y="48" width="8" height="8" fill="currentColor"/>
+                <rect x="24" y="48" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="32" y="48" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="40" y="48" width="8" height="8" fill="currentColor"/>
+                <rect x="48" y="48" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="56" y="48" width="8" height="8" fill="currentColor"/>
+                <rect x="0" y="56" width="8" height="8" fill="currentColor"/>
+                <rect x="8" y="56" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="16" y="56" width="8" height="8" fill="currentColor"/>
+                <rect x="24" y="56" width="8" height="8" fill="currentColor"/>
+                <rect x="32" y="56" width="8" height="8" fill="currentColor"/>
+                <rect x="40" y="56" width="8" height="8" fill="currentColor" opacity="0"/>
+                <rect x="48" y="56" width="8" height="8" fill="currentColor"/>
+                <rect x="56" y="56" width="8" height="8" fill="currentColor"/>
+              </svg>
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-wider text-teal">Código de verificación</p>
+              <p className="mt-1 font-mono text-sm font-bold text-text">VET-2025-00142</p>
+              <p className="mt-0.5 text-xs text-text-light">Escanea para verificar la membresía</p>
+            </div>
+          </div>
+        </div>
         {/* Action buttons */}
         <div className="border-t border-gray-100 bg-white px-6 py-4">
           <div className="flex items-center justify-center gap-3">

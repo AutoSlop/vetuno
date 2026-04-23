@@ -14,6 +14,7 @@ export default function Footer() {
               <a href="/producto" className="hover:text-teal transition">Producto</a>
               <a href="/precios" className="hover:text-teal transition">Precios</a>
               <a href="/contacto" className="hover:text-teal transition">Contacto</a>
+              <a href="/admin" className="hover:text-teal transition">Admin</a>
             </div>
             <div className="flex flex-col items-center gap-1 md:items-end">
               <span>info@example.com</span>

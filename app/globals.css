@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --color-teal: #0E7C86;
-  --color-teal-dark: #0a5f67;
-  --color-orange: #F4A261;
-  --color-orange-dark: #e08a3a;
-  --color-bg: #F7FBFA;
-  --color-text: #16323A;
-  --color-text-light: #3a5a65;
+  --color-teal: #103B46;
+  --color-teal-dark: #0C2F38;
+  --color-orange: #2F6F73;
+  --color-orange-dark: #245A5E;
+  --color-bg: #F7F8FA;
+  --color-text: #0F1720;
+  --color-text-light: #475467;
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #1da851;
+  --color-border: #D0D7DE;
+  --color-bg-alt: #EEF2F4;
+  --color-accent: #2F6F73;
+  --color-footer-bg: #0F1720;
+  --color-footer-text: #CBD5E1;
 }
 
 @theme inline {
@@ -22,6 +27,11 @@
   --color-text-light: var(--color-text-light);
   --color-whatsapp: var(--color-whatsapp);
   --color-whatsapp-dark: var(--color-whatsapp-dark);
+  --color-border: var(--color-border);
+  --color-bg-alt: var(--color-bg-alt);
+  --color-accent: var(--color-accent);
+  --color-footer-bg: var(--color-footer-bg);
+  --color-footer-text: var(--color-footer-text);
   --font-sans: var(--font-geist-sans);
 }
 
@@ -32,4 +42,12 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ─── Focus & interactive states ─── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
 }

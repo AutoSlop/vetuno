@@ -71,25 +71,25 @@ export default function MembershipCard() {
           </div>
 
           <div className="mt-6 space-y-3 text-sm">
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">ID de miembro</span>
               <span className="font-mono font-semibold text-text">
                 VET-2025-00142
               </span>
             </div>
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">Correo</span>
               <span className="font-semibold text-text">maria.lopez@elroble.vet</span>
             </div>
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">Teléfono</span>
               <span className="font-semibold text-text">+57 314 555 3305</span>
             </div>
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">Sede</span>
               <span className="font-semibold text-text">Bogotá, Colombia</span>
             </div>
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">
                 Fecha de emisión
               </span>
@@ -97,7 +97,7 @@ export default function MembershipCard() {
                 15 de marzo, 2025
               </span>
             </div>
-            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+            <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">
                 Vigencia hasta
               </span>
@@ -115,10 +115,10 @@ export default function MembershipCard() {
           </div>
         </div>
         {/* QR Code section */}
-        <div className="border-t border-gray-100 bg-white px-6 py-5">
+        <div className="border-t border-border bg-white px-6 py-5">
           <div className="flex items-center gap-4">
             {/* Simulated QR code */}
-            <div className="shrink-0 rounded-lg border border-gray-200 bg-white p-2">
+            <div className="shrink-0 rounded-lg border border-border bg-white p-2">
               <svg width="64" height="64" viewBox="0 0 64 64" className="text-text">
                 <rect x="0" y="0" width="8" height="8" fill="currentColor"/>
                 <rect x="8" y="0" width="8" height="8" fill="currentColor" opacity="0"/>
@@ -191,11 +191,11 @@ export default function MembershipCard() {
           </div>
         </div>
         {/* Action buttons */}
-        <div className="border-t border-gray-100 bg-white px-6 py-4">
+        <div className="border-t border-border bg-white px-6 py-4">
           <div className="flex items-center justify-center gap-3">
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text transition hover:bg-bg"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-text transition hover:bg-bg"
             >
               <svg className="h-4 w-4 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -204,7 +204,7 @@ export default function MembershipCard() {
             </button>
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-text transition hover:bg-bg"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-text transition hover:bg-bg"
             >
               <svg className="h-4 w-4 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
@@ -214,7 +214,7 @@ export default function MembershipCard() {
           </div>
         </div>
         {/* Card footer */}
-        <div className="border-t border-gray-100 bg-bg px-6 py-3">
+        <div className="border-t border-border bg-bg px-6 py-3">
           <div className="flex items-center justify-between text-xs text-text-light">
             <span>Plan Equipo</span>
             <span className="font-medium text-accent">Membresía vigente</span>

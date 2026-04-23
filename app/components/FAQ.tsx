@@ -33,7 +33,7 @@ export default function FAQ() {
       {faqs.map((faq, i) => (
         <div
           key={i}
-          className="rounded-xl border border-gray-200 bg-white transition-shadow hover:shadow-sm"
+          className="rounded-xl border border-border bg-white transition-shadow hover:shadow-sm"
         >
           <button
             onClick={() => setOpen(open === i ? null : i)}

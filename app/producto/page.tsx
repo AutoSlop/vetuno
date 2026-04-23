@@ -38,7 +38,7 @@ export default function ProductoPage() {
   return (
     <>
       {/* ═══ HERO PRODUCTO ═══ */}
-      <section className="bg-gradient-to-b from-white to-bg py-16 md:py-24">
+      <section className="bg-gradient-to-b from-bg-alt via-white to-bg py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h1 className="text-3xl font-extrabold text-text md:text-5xl">
             Una plataforma all-in-one para tu veterinaria
@@ -49,7 +49,7 @@ export default function ProductoPage() {
           <div className="mt-8">
             <Link
               href="/funcionalidades"
-              className="inline-flex items-center gap-2 rounded-full bg-teal px-8 py-3.5 text-base font-semibold text-white transition hover:bg-teal-dark"
+              className="inline-flex items-center gap-2 rounded-full bg-teal px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
             >
               Ver funcionalidades
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -100,8 +100,8 @@ export default function ProductoPage() {
             <ul className="space-y-5">
               {benefits.map((b, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange/15">
-                    <svg className="h-5 w-5 text-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                    <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                   </div>

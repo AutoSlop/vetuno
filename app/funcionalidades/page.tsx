@@ -82,7 +82,7 @@ export default function FuncionalidadesPage() {
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="bg-gradient-to-b from-white to-bg py-16 md:py-24">
+      <section className="bg-gradient-to-b from-bg-alt via-white to-bg py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h1 className="text-3xl font-extrabold text-text md:text-5xl">
             Funcionalidades de Vetuno
@@ -94,13 +94,13 @@ export default function FuncionalidadesPage() {
       </section>
 
       {/* ═══ MÓDULOS ═══ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-bg-alt py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {modules.map((m, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-gray-100 bg-bg p-7 transition hover:shadow-md"
+                className="rounded-2xl border border-border bg-white p-7 shadow-sm transition hover:shadow-md"
               >
                 <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-teal/10">
                   {m.icon}
@@ -134,7 +134,7 @@ export default function FuncionalidadesPage() {
             </a>
             <Link
               href="/precios"
-              className="rounded-full border-2 border-teal px-8 py-3.5 text-base font-semibold text-teal transition hover:bg-teal/5"
+              className="rounded-full border-2 border-teal px-8 py-3.5 text-base font-semibold text-teal transition hover:bg-teal hover:text-white active:bg-teal-dark"
             >
               Ver planes
             </Link>

@@ -76,12 +76,12 @@ export default function PreciosPage() {
                 key={plan.name}
                 className={`relative rounded-2xl border p-8 transition ${
                   plan.highlighted
-                    ? "border-teal bg-white shadow-xl shadow-teal/10 ring-2 ring-teal"
-                    : "border-gray-200 bg-white hover:shadow-md"
+                    ? "border-teal bg-white shadow-lg shadow-teal/8 ring-2 ring-teal"
+                    : "border-border bg-white shadow-sm hover:shadow-md"
                 }`}
               >
                 {plan.highlighted && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-orange px-4 py-1 text-xs font-bold text-white">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-accent px-4 py-1 text-xs font-bold text-white">
                     Más popular
                   </span>
                 )}
@@ -107,8 +107,8 @@ export default function PreciosPage() {
                   rel="noopener noreferrer"
                   className={`mt-8 block rounded-xl py-3 text-center font-semibold transition ${
                     plan.highlighted
-                      ? "bg-teal text-white hover:bg-teal-dark"
-                      : "border-2 border-teal text-teal hover:bg-teal/5"
+                      ? "bg-teal text-white shadow-sm hover:bg-teal-dark active:shadow-none"
+                      : "border-2 border-teal text-teal hover:bg-teal hover:text-white active:bg-teal-dark"
                   }`}
                 >
                   Solicitar demo
@@ -120,7 +120,7 @@ export default function PreciosPage() {
       </section>
 
       {/* ═══ FAQ ═══ */}
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-bg-alt py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto mb-14 max-w-2xl text-center">
             <h2 className="text-3xl font-extrabold text-text md:text-4xl">

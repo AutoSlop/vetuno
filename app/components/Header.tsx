@@ -17,7 +17,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="text-2xl font-bold text-teal">
           Vetuno
@@ -40,7 +40,7 @@ export default function Header() {
             href="https://wa.me/573145553305"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-teal px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark"
+            className="rounded-full bg-teal px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
           >
             Solicitar demo
           </a>
@@ -64,7 +64,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="border-t border-gray-100 bg-white px-6 py-4 md:hidden">
+        <nav className="border-t border-border bg-white px-6 py-4 md:hidden">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
@@ -83,7 +83,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="rounded-full bg-teal px-6 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-teal-dark"
+              className="rounded-full bg-teal px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
             >
               Solicitar demo
             </a>

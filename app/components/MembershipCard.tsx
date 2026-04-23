@@ -40,7 +40,7 @@ export default function MembershipCard() {
             {/* Avatar with initials */}
             <div className="relative">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-teal to-teal-dark text-xl font-bold text-white shadow-md">
-                ML
+                CM
               </div>
               {/* Status badge */}
               <span className="absolute -bottom-0.5 -right-0.5 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-emerald-500">
@@ -59,13 +59,13 @@ export default function MembershipCard() {
             </div>
             <div className="min-w-0">
               <h3 className="text-lg font-bold text-text">
-                Dra. María López Rodríguez
+                Dr. Carlos Mendoza
               </h3>
               <p className="text-sm font-medium text-teal">
-                Médica Veterinaria
+                Médico Veterinario
               </p>
               <p className="mt-0.5 text-xs text-text-light">
-                Clínica Veterinaria El Roble
+                VetCare Bogotá
               </p>
             </div>
           </div>
@@ -74,16 +74,16 @@ export default function MembershipCard() {
             <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">ID de miembro</span>
               <span className="font-mono font-semibold text-text">
-                VET-2025-00142
+                VET-2024-001
               </span>
             </div>
             <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">Correo</span>
-              <span className="font-semibold text-text">maria.lopez@elroble.vet</span>
+              <span className="font-semibold text-text">carlos.mendoza@vetcare.co</span>
             </div>
             <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">Teléfono</span>
-              <span className="font-semibold text-text">+57 314 555 3305</span>
+              <span className="font-semibold text-text">+57 310 456 7890</span>
             </div>
             <div className="flex items-center justify-between border-b border-border pb-2">
               <span className="font-medium text-text-light">Sede</span>
@@ -94,7 +94,7 @@ export default function MembershipCard() {
                 Fecha de emisión
               </span>
               <span className="font-semibold text-text">
-                15 de marzo, 2025
+                10 de enero, 2024
               </span>
             </div>
             <div className="flex items-center justify-between border-b border-border pb-2">
@@ -102,7 +102,7 @@ export default function MembershipCard() {
                 Vigencia hasta
               </span>
               <span className="font-semibold text-text">
-                15 de marzo, 2026
+                10 de enero, 2027
               </span>
             </div>
             <div className="flex items-center justify-between border-b border-border pb-2">
@@ -191,7 +191,7 @@ export default function MembershipCard() {
             </div>
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-wider text-teal">Código de verificación</p>
-              <p className="mt-1 font-mono text-sm font-bold text-text">VET-2025-00142</p>
+              <p className="mt-1 font-mono text-sm font-bold text-text">VET-2024-001</p>
               <p className="mt-0.5 text-xs text-text-light">Escanea para verificar la membresía</p>
             </div>
           </div>

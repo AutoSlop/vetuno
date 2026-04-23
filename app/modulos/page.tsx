@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Funcionalidades — Vetuno",
+  title: "Módulos — Vetuno",
   description: "Conoce los módulos de Vetuno: historia clínica digital, agenda de citas, perfil unificado, fórmulas en PDF y autorizaciones.",
 };
 
@@ -78,14 +78,14 @@ const modules = [
   },
 ];
 
-export default function FuncionalidadesPage() {
+export default function ModulosPage() {
   return (
     <>
       {/* ═══ HERO ═══ */}
       <section className="bg-gradient-to-b from-bg-alt via-white to-bg py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h1 className="text-3xl font-extrabold text-text md:text-5xl">
-            Funcionalidades de Vetuno
+            Módulos de Vetuno
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-text-light">
             Módulos pensados para la operación diaria de tu clínica veterinaria.
@@ -117,7 +117,7 @@ export default function FuncionalidadesPage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-extrabold text-text md:text-4xl">
-            ¿Quieres ver estas funcionalidades en acción?
+            ¿Quieres ver estos módulos en acción?
           </h2>
           <p className="mt-4 text-lg text-text-light">
             Solicita una demo personalizada y te mostramos cómo Vetuno puede transformar la operación de tu clínica.

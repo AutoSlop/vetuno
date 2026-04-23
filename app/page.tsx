@@ -445,10 +445,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="mx-auto mb-14 max-w-2xl text-center">
             <h2 className="text-3xl font-extrabold text-text md:text-4xl">
-              Mi membresía
+              Carnet digital
             </h2>
             <p className="mt-4 text-lg text-text-light">
-              Cada usuario de Vetuno cuenta con su tarjeta de membresía digital.
+              Cada usuario de Vetuno cuenta con su tarjeta de membresía digital, accesible desde cualquier dispositivo.
             </p>
           </div>
           <div className="mx-auto max-w-md">
@@ -501,6 +501,14 @@ export default function Home() {
                     <span className="font-semibold text-text">Veterinaria El Roble</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="font-medium text-text-light">Correo</span>
+                    <span className="font-semibold text-text">maria.lopez@elroble.vet</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="font-medium text-text-light">Teléfono</span>
+                    <span className="font-semibold text-text">+57 314 555 3305</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
                     <span className="font-medium text-text-light">Fecha de emisión</span>
                     <span className="font-semibold text-text">15 de marzo, 2025</span>
                   </div>
@@ -508,7 +516,7 @@ export default function Home() {
                     <span className="font-medium text-text-light">Estado</span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600">
                       <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-                      Activo
+                      Activa
                     </span>
                   </div>
                 </div>

@@ -8,6 +8,8 @@
   --color-bg: #F7FBFA;
   --color-text: #16323A;
   --color-text-light: #3a5a65;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #1da851;
 }
 
 @theme inline {
@@ -18,6 +20,8 @@
   --color-bg: var(--color-bg);
   --color-text: var(--color-text);
   --color-text-light: var(--color-text-light);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-whatsapp-dark: var(--color-whatsapp-dark);
   --font-sans: var(--font-geist-sans);
 }
 

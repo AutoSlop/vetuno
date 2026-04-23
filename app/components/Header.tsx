@@ -37,7 +37,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/admin"
+            href="/login"
             className="rounded-full border border-teal px-5 py-2.5 text-sm font-semibold text-teal transition hover:bg-teal hover:text-white"
           >
             Inicia sesión
@@ -85,7 +85,7 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/admin"
+              href="/login"
               onClick={() => setMenuOpen(false)}
               className="rounded-full border border-teal px-5 py-2.5 text-center text-sm font-semibold text-teal transition hover:bg-teal hover:text-white"
             >

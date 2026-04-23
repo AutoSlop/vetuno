@@ -3,8 +3,8 @@ import MembershipCard from "../../components/MembershipCard";
 
 const kpis = [
   { label: "Clínicas activas", value: "24", change: "+3 este mes", color: "bg-teal/10 text-teal" },
-  { label: "Usuarios activos", value: "87", change: "+12 este mes", color: "bg-blue-50 text-blue-600" },
   { label: "Pacientes registrados", value: "1,243", change: "+156 este mes", color: "bg-emerald-50 text-emerald-600" },
+  { label: "Citas del día", value: "18", change: "4 pendientes", color: "bg-blue-50 text-blue-600" },
   { label: "Membresías activas", value: "68", change: "+8 este mes", color: "bg-orange/10 text-orange" },
 ];
 

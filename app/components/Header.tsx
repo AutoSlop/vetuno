@@ -36,6 +36,12 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/admin"
+            className="rounded-full border border-teal px-5 py-2.5 text-sm font-semibold text-teal transition hover:bg-teal hover:text-white"
+          >
+            Inicia sesión
+          </Link>
           <a
             href="https://wa.me/573145553305"
             target="_blank"
@@ -78,6 +84,13 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/admin"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-full border border-teal px-5 py-2.5 text-center text-sm font-semibold text-teal transition hover:bg-teal hover:text-white"
+            >
+              Inicia sesión
+            </Link>
             <a
               href="https://wa.me/573145553305"
               target="_blank"

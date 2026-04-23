@@ -439,6 +439,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ MI MEMBRESÍA ═══ */}
+      <section id="membresia" className="py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mx-auto mb-14 max-w-2xl text-center">
+            <h2 className="text-3xl font-extrabold text-text md:text-4xl">
+              Tarjeta de miembro
+            </h2>
+            <p className="mt-4 text-lg text-text-light">
+              Cada usuario de Vetuno cuenta con su tarjeta de membresía digital.
+            </p>
+          </div>
+          <div className="mx-auto max-w-md">
+            <div className="overflow-hidden rounded-2xl shadow-xl">
+              {/* Card header */}
+              <div className="bg-gradient-to-r from-teal to-teal-dark px-6 py-5 text-white">
+                <div className="flex items-center justify-between">
+                  <span className="text-xl font-bold tracking-wide">Vetuno</span>
+                  <span className="rounded-full bg-white/20 px-3 py-0.5 text-xs font-semibold uppercase tracking-wider">
+                    Miembro
+                  </span>
+                </div>
+              </div>
+              {/* Card body */}
+              <div className="bg-white p-6">
+                <div className="flex items-start gap-5">
+                  {/* Avatar */}
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-teal/10">
+                    <svg className="h-8 w-8 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-bold text-text">Dra. María López Rodríguez</h3>
+                    <p className="text-sm text-text-light">Médica Veterinaria</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-3 text-sm">
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="font-medium text-text-light">ID de miembro</span>
+                    <span className="font-semibold text-text">VET-2025-00142</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="font-medium text-text-light">Email</span>
+                    <span className="font-semibold text-text">maria.lopez@vetclinica.co</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="font-medium text-text-light">Teléfono</span>
+                    <span className="font-semibold text-text">+57 310 456 7890</span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+                    <span className="font-medium text-text-light">Fecha de afiliación</span>
+                    <span className="font-semibold text-text">15 de marzo, 2025</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-text-light">Estado</span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-3 py-1 text-xs font-bold text-teal">
+                      <span className="h-2 w-2 rounded-full bg-teal"></span>
+                      Activa
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* Card footer */}
+              <div className="border-t border-gray-100 bg-bg px-6 py-3 text-center text-xs text-text-light">
+                Plan Equipo &middot; Clínica Veterinaria El Roble
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CTA + DEMO FORM ═══ */}
       <section id="demo" className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">

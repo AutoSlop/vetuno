@@ -1,31 +1,39 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/producto", label: "Producto" },
+    { href: "/precios", label: "Precios" },
+    { href: "/contacto", label: "Contacto" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-2xl font-bold text-teal">
+        <Link href="/" className="text-2xl font-bold text-teal">
           Vetuno
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 md:flex">
-          <a href="#modulos" className="text-sm font-medium text-text-light hover:text-teal transition">
-            Módulos
-          </a>
-          <a href="#como-funciona" className="text-sm font-medium text-text-light hover:text-teal transition">
-            Cómo funciona
-          </a>
-          <a href="#precios" className="text-sm font-medium text-text-light hover:text-teal transition">
-            Precios
-          </a>
-          <a href="#faq" className="text-sm font-medium text-text-light hover:text-teal transition">
-            FAQ
-          </a>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-medium transition ${
+                pathname === link.href ? "text-teal" : "text-text-light hover:text-teal"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
           <a
             href="https://wa.me/573145553305"
             target="_blank"
@@ -56,18 +64,18 @@ export default function Header() {
       {menuOpen && (
         <nav className="border-t border-gray-100 bg-white px-6 py-4 md:hidden">
           <div className="flex flex-col gap-4">
-            <a href="#modulos" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-text-light hover:text-teal">
-              Módulos
-            </a>
-            <a href="#como-funciona" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-text-light hover:text-teal">
-              Cómo funciona
-            </a>
-            <a href="#precios" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-text-light hover:text-teal">
-              Precios
-            </a>
-            <a href="#faq" onClick={() => setMenuOpen(false)} className="text-sm font-medium text-text-light hover:text-teal">
-              FAQ
-            </a>
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className={`text-sm font-medium ${
+                  pathname === link.href ? "text-teal" : "text-text-light hover:text-teal"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <a
               href="https://wa.me/573145553305"
               target="_blank"

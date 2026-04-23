@@ -105,6 +105,12 @@ export default function MembershipCard() {
                 15 de marzo, 2026
               </span>
             </div>
+            <div className="flex items-center justify-between border-b border-border pb-2">
+              <span className="font-medium text-text-light">Plan actual</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-teal/10 px-3 py-1 text-xs font-bold text-teal">
+                Plan Equipo
+              </span>
+            </div>
             <div className="flex items-center justify-between">
               <span className="font-medium text-text-light">Estado</span>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600">

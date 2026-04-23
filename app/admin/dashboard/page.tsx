@@ -98,7 +98,7 @@ export default function AdminDashboard() {
       {/* Mi membresía */}
       <div className="rounded-xl border border-gray-200 bg-white shadow-sm">
         <div className="border-b border-gray-100 px-6 py-4">
-          <h2 className="text-base font-semibold text-text">Mi membresía</h2>
+          <h2 className="text-base font-semibold text-text">Tu membresía</h2>
           <p className="mt-1 text-sm text-text-light">
             Consulta tu credencial digital de Vetuno. Puedes descargarla o compartirla en cualquier momento.
           </p>

@@ -27,7 +27,9 @@ export default function Header() {
             FAQ
           </a>
           <a
-            href="#demo"
+            href="https://wa.me/573145553305"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-teal px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark"
           >
             Solicitar demo
@@ -67,7 +69,9 @@ export default function Header() {
               FAQ
             </a>
             <a
-              href="#demo"
+              href="https://wa.me/573145553305"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
               className="rounded-full bg-teal px-6 py-2.5 text-center text-sm font-semibold text-white transition hover:bg-teal-dark"
             >

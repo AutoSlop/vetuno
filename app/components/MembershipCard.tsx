@@ -79,7 +79,7 @@ export default function MembershipCard() {
             </div>
             <div className="flex items-center justify-between border-b border-gray-100 pb-2">
               <span className="font-medium text-text-light">Correo</span>
-              <span className="font-semibold text-text">info@example.com</span>
+              <span className="font-semibold text-text">maria.lopez@elroble.vet</span>
             </div>
             <div className="flex items-center justify-between border-b border-gray-100 pb-2">
               <span className="font-medium text-text-light">Teléfono</span>

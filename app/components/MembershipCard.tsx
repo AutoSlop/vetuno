@@ -83,11 +83,11 @@ export default function MembershipCard() {
             </div>
             <div className="flex items-center justify-between border-b border-gray-100 pb-2">
               <span className="font-medium text-text-light">Teléfono</span>
-              <span className="font-semibold text-text">+00 000 000 0000</span>
+              <span className="font-semibold text-text">+57 314 555 3305</span>
             </div>
             <div className="flex items-center justify-between border-b border-gray-100 pb-2">
-              <span className="font-medium text-text-light">Dirección</span>
-              <span className="font-semibold text-text">123 Main Street</span>
+              <span className="font-medium text-text-light">Sede</span>
+              <span className="font-semibold text-text">Bogotá, Colombia</span>
             </div>
             <div className="flex items-center justify-between border-b border-gray-100 pb-2">
               <span className="font-medium text-text-light">
@@ -95,6 +95,14 @@ export default function MembershipCard() {
               </span>
               <span className="font-semibold text-text">
                 15 de marzo, 2025
+              </span>
+            </div>
+            <div className="flex items-center justify-between border-b border-gray-100 pb-2">
+              <span className="font-medium text-text-light">
+                Vigencia hasta
+              </span>
+              <span className="font-semibold text-text">
+                15 de marzo, 2026
               </span>
             </div>
             <div className="flex items-center justify-between">

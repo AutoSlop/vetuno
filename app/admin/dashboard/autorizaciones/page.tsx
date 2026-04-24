@@ -174,7 +174,7 @@ export default function AutorizacionesPage() {
               <div className="border-t border-gray-100 bg-gray-50/30 p-6">
                 <div className="mx-auto max-w-2xl rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   {/* Document header */}
-                  <div className="mb-6 border-b border-gray-200 pb-4 text-center">
+                  <div className="mb-6 border-b pb-4 text-center" style={{ borderColor: branding.primaryColor + "33" }}>
                     <div className="flex items-center justify-center gap-2">
                       {branding.logo ? (
                         <img src={branding.logo} alt="" className="h-6 w-6 rounded object-contain" />
@@ -224,7 +224,7 @@ export default function AutorizacionesPage() {
                     </ol>
                   </div>
                   {/* Signature area */}
-                  <div className="border-t border-gray-200 pt-4">
+                  <div className="border-t pt-4" style={{ borderColor: branding.primaryColor + "33" }}>
                     <div className="grid grid-cols-2 gap-8">
                       <div className="text-center">
                         <div className="mb-2 border-b border-gray-300 pb-8">
@@ -246,6 +246,10 @@ export default function AutorizacionesPage() {
                       </div>
                     </div>
                     <p className="mt-4 text-center text-xs text-text-light">Fecha: {auth.date} · {auth.id}</p>
+                    <p className="mt-1 text-center text-xs text-text-light">Documento generado digitalmente por {branding.name} · Vetuno</p>
+                    {(branding.address || branding.city) && (
+                      <p className="text-center text-xs text-text-light">{[branding.address, branding.city].filter(Boolean).join(" · ")}</p>
+                    )}
                   </div>
                 </div>
                 <div className="mt-4 flex justify-center gap-3">

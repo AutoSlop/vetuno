@@ -122,7 +122,7 @@ export default function FormulasPage() {
               <div className="border-t border-gray-100 bg-gray-50/30 p-6">
                 <div className="mx-auto max-w-2xl rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   {/* Document header */}
-                  <div className="mb-6 border-b border-gray-200 pb-4 text-center">
+                  <div className="mb-6 border-b pb-4 text-center" style={{ borderColor: branding.primaryColor + "33" }}>
                     <div className="flex items-center justify-center gap-2">
                       {branding.logo ? (
                         <img src={branding.logo} alt="" className="h-6 w-6 rounded object-contain" />
@@ -174,9 +174,15 @@ export default function FormulasPage() {
                     </div>
                   </div>
                   {/* Footer */}
-                  <div className="border-t border-gray-200 pt-4 text-center">
+                  <div className="border-t pt-4 text-center" style={{ borderColor: branding.primaryColor + "33" }}>
                     <p className="text-xs text-text-light">Fecha de emisión: {f.date} · {f.id}</p>
                     <p className="mt-1 text-xs text-text-light">Documento generado digitalmente por {branding.name} · Vetuno</p>
+                    {(branding.address || branding.city) && (
+                      <p className="mt-0.5 text-xs text-text-light">{[branding.address, branding.city].filter(Boolean).join(" · ")}</p>
+                    )}
+                    {(branding.phone || branding.email) && (
+                      <p className="text-xs text-text-light">{[branding.phone, branding.email].filter(Boolean).join(" · ")}</p>
+                    )}
                   </div>
                 </div>
                 {/* Action buttons */}

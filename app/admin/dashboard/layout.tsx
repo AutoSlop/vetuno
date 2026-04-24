@@ -18,7 +18,7 @@ const navItems = [
   { href: "/admin/dashboard/mi-membresia", label: "Mi membresía", icon: "badge", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/membresia", label: "Membresía clínica", icon: "card", enabled: false, demoOnly: true },
   { href: "/admin/dashboard/configuracion", label: "Configuración", icon: "settings", enabled: true, demoOnly: false },
-  { href: "#", label: "Reportes", icon: "chart", enabled: false, demoOnly: false },
+  { href: "/admin/dashboard/reportes", label: "Reportes", icon: "chart", enabled: true, demoOnly: false },
 ];
 
 function NavIcon({ icon, className }: { icon: string; className?: string }) {
@@ -65,6 +65,7 @@ const breadcrumbLabels: Record<string, string> = {
   formulas: "Fórmulas",
   autorizaciones: "Autorizaciones",
   membresia: "Membresía clínica",
+  reportes: "Reportes",
 };
 
 function Breadcrumbs({ pathname }: { pathname: string }) {

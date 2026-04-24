@@ -1,21 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
-  { href: "/admin/dashboard", label: "Inicio", icon: "home", enabled: true },
-  { href: "/admin/dashboard/onboarding", label: "Configuración inicial", icon: "rocket", enabled: true },
-  { href: "/admin/dashboard/usuarios", label: "Usuarios", icon: "users", enabled: true },
-  { href: "/admin/dashboard/pacientes", label: "Pacientes", icon: "pet", enabled: true },
-  { href: "/admin/dashboard/membresias", label: "Membresías", icon: "card", enabled: true },
-  { href: "/admin/dashboard/mi-membresia", label: "Mi membresía", icon: "badge", enabled: true },
-  { href: "/admin/dashboard/configuracion", label: "Configuración", icon: "settings", enabled: true },
-  { href: "#", label: "Citas", icon: "calendar", enabled: false },
-  { href: "#", label: "Fórmulas", icon: "document", enabled: false },
-  { href: "#", label: "Autorizaciones", icon: "shield", enabled: false },
-  { href: "#", label: "Reportes", icon: "chart", enabled: false },
+  { href: "/admin/dashboard", label: "Inicio", icon: "home", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/onboarding", label: "Configuración inicial", icon: "rocket", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/usuarios", label: "Usuarios", icon: "users", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/pacientes", label: "Pacientes", icon: "pet", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/mascotas", label: "Mascotas", icon: "pet", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/citas", label: "Agenda", icon: "calendar", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/historia-clinica", label: "Historia clínica", icon: "document", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/formulas", label: "Fórmulas", icon: "document", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/autorizaciones", label: "Autorizaciones", icon: "shield", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/membresias", label: "Membresías", icon: "card", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/mi-membresia", label: "Mi membresía", icon: "badge", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/membresia", label: "Membresía clínica", icon: "card", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/configuracion", label: "Configuración", icon: "settings", enabled: true, demoOnly: false },
+  { href: "#", label: "Reportes", icon: "chart", enabled: false, demoOnly: false },
 ];
 
 function NavIcon({ icon, className }: { icon: string; className?: string }) {
@@ -56,6 +59,12 @@ const breadcrumbLabels: Record<string, string> = {
   "mi-membresia": "Mi membresía",
   configuracion: "Configuración",
   onboarding: "Configuración inicial",
+  citas: "Agenda",
+  mascotas: "Mascotas",
+  "historia-clinica": "Historia clínica",
+  formulas: "Fórmulas",
+  autorizaciones: "Autorizaciones",
+  membresia: "Membresía clínica",
 };
 
 function Breadcrumbs({ pathname }: { pathname: string }) {
@@ -93,10 +102,22 @@ export default function AdminDashboardLayout({
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isDemo, setIsDemo] = useState(false);
+
+  useEffect(() => {
+    setIsDemo(localStorage.getItem("vetuno_demo") === "true");
+  }, []);
 
   function handleLogout() {
+    localStorage.removeItem("vetuno_demo");
     router.push("/login");
   }
+
+  const visibleNavItems = navItems.map((item) => ({
+    ...item,
+    enabled: item.enabled || (isDemo && item.demoOnly),
+    href: item.enabled || (isDemo && item.demoOnly) ? item.href : "#",
+  }));
 
   const isActive = (href: string) =>
     href === "/admin/dashboard"
@@ -124,15 +145,22 @@ export default function AdminDashboardLayout({
           <Link href="/admin/dashboard" className="text-xl font-bold text-teal">
             Vetuno
           </Link>
-          <span className="rounded-md bg-teal/10 px-2 py-0.5 text-xs font-medium text-teal">
-            Admin
-          </span>
+          <div className="flex items-center gap-2">
+            {isDemo && (
+              <span className="rounded-md bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-600 border border-amber-200">
+                Demo
+              </span>
+            )}
+            <span className="rounded-md bg-teal/10 px-2 py-0.5 text-xs font-medium text-teal">
+              Admin
+            </span>
+          </div>
         </div>
 
         {/* Nav */}
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           <div className="space-y-1">
-            {navItems.filter((i) => i.enabled).map((item) => (
+            {visibleNavItems.filter((i) => i.enabled).map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
@@ -150,27 +178,40 @@ export default function AdminDashboardLayout({
           </div>
 
           {/* Disabled / Coming soon */}
-          <div className="mt-6 border-t border-gray-100 pt-4">
-            <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
-              Próximamente
-            </p>
-            {navItems.filter((i) => !i.enabled).map((item) => (
-              <div
-                key={item.label}
-                className="flex cursor-not-allowed items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-300"
-              >
-                <NavIcon icon={item.icon} />
-                {item.label}
-                <span className="ml-auto rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-400">
-                  Pronto
-                </span>
-              </div>
-            ))}
-          </div>
+          {visibleNavItems.some((i) => !i.enabled) && (
+            <div className="mt-6 border-t border-gray-100 pt-4">
+              <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                Próximamente
+              </p>
+              {visibleNavItems.filter((i) => !i.enabled).map((item) => (
+                <div
+                  key={item.label}
+                  className="flex cursor-not-allowed items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-300"
+                >
+                  <NavIcon icon={item.icon} />
+                  {item.label}
+                  <span className="ml-auto rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-400">
+                    Pronto
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
         </nav>
 
         {/* Sidebar footer */}
-        <div className="border-t border-gray-200 p-4">
+        <div className="border-t border-gray-200 p-4 space-y-2">
+          {isDemo && (
+            <a
+              href="https://wa.me/573145553305"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center gap-3 rounded-lg bg-whatsapp/10 px-3 py-2.5 text-sm font-medium text-emerald-700 transition hover:bg-whatsapp/20"
+            >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Solicitar demo comercial
+            </a>
+          )}
           <button
             onClick={handleLogout}
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-text-light transition hover:bg-gray-100 hover:text-red-600"
@@ -178,7 +219,7 @@ export default function AdminDashboardLayout({
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
             </svg>
-            Cerrar sesión
+            {isDemo ? "Salir del demo" : "Cerrar sesión"}
           </button>
         </div>
       </aside>
@@ -242,6 +283,25 @@ export default function AdminDashboardLayout({
 
         {/* Page content */}
         <main className="flex-1 p-4 lg:p-8">
+          {/* Demo mode banner */}
+          {isDemo && (
+            <div className="mb-4 flex items-center justify-between rounded-lg border border-amber-200 bg-amber-50 px-4 py-2.5">
+              <div className="flex items-center gap-2 text-sm text-amber-700">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+                <span className="font-medium">Modo demo</span>
+                <span className="hidden sm:inline">— Datos ficticios de la Clínica Veterinaria PetSalud, Bogotá</span>
+              </div>
+              <a
+                href="https://wa.me/573145553305"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden items-center gap-1.5 rounded-full bg-whatsapp px-3 py-1 text-xs font-semibold text-white transition hover:bg-whatsapp-dark sm:inline-flex"
+              >
+                <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Hablar por WhatsApp
+              </a>
+            </div>
+          )}
           {/* Breadcrumbs */}
           <Breadcrumbs pathname={pathname} />
           {children}

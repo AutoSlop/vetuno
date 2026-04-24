@@ -173,14 +173,13 @@ export default function LoginPage() {
               <a href="#" className="text-sm text-teal hover:underline">
                 ¿Olvidaste tu contraseña?
               </a>
-              <a
-                href="https://wa.me/573145553305"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-text-light hover:text-teal transition"
+              <Link
+                href="/demo"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-teal/10 px-3 py-1.5 text-sm font-medium text-teal transition hover:bg-teal/20"
               >
-                Ver demo
-              </a>
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
+                Entrar al demo
+              </Link>
             </div>
           </div>
 

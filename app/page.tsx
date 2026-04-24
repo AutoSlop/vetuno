@@ -51,17 +51,17 @@ export default function Home() {
               </ul>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
-                  href="/demo"
+                  href="/registro"
                   className="inline-flex items-center gap-2 rounded-full bg-teal px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
+                >
+                  Crear mi cuenta gratis
+                </Link>
+                <Link
+                  href="/demo"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-teal/30 px-6 py-3 text-sm font-semibold text-teal transition hover:bg-teal/5"
                 >
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" /></svg>
                   Ver demo interactivo
-                </Link>
-                <Link
-                  href="/precios"
-                  className="rounded-full border-2 border-teal px-6 py-3 text-sm font-semibold text-teal transition hover:bg-teal hover:text-white active:bg-teal-dark"
-                >
-                  Ver planes
                 </Link>
               </div>
             </div>

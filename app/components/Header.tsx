@@ -42,14 +42,12 @@ export default function Header() {
           >
             Inicia sesión
           </Link>
-          <a
-            href="https://wa.me/573145553305"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/registro"
             className="rounded-full bg-teal px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
           >
-            Solicitar demo
-          </a>
+            Crear cuenta
+          </Link>
         </nav>
 
         {/* Mobile hamburger */}
@@ -91,15 +89,13 @@ export default function Header() {
             >
               Inicia sesión
             </Link>
-            <a
-              href="https://wa.me/573145553305"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/registro"
               onClick={() => setMenuOpen(false)}
               className="rounded-full bg-teal px-6 py-2.5 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
             >
-              Solicitar demo
-            </a>
+              Crear cuenta
+            </Link>
           </div>
         </nav>
       )}

@@ -181,6 +181,15 @@ export default function LoginPage() {
                 Entrar al demo
               </Link>
             </div>
+
+            <div className="mt-5 text-center border-t border-gray-100 pt-5">
+              <p className="text-sm text-text-light">
+                ¿No tienes cuenta?{" "}
+                <Link href="/registro" className="font-medium text-teal hover:underline">
+                  Crea tu cuenta gratis
+                </Link>
+              </p>
+            </div>
           </div>
 
           <p className="mt-6 text-center text-xs text-text-light lg:hidden">

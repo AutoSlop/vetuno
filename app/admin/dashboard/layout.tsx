@@ -121,14 +121,20 @@ function AdminDashboardLayoutInner({
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDemo, setIsDemo] = useState(false);
+  const [sessionData, setSessionData] = useState<{ adminName?: string; clinicName?: string } | null>(null);
   const { branding, initials } = useClinicBranding();
 
   useEffect(() => {
     setIsDemo(localStorage.getItem("vetuno_demo") === "true");
+    try {
+      const raw = localStorage.getItem("vetuno_session");
+      if (raw) setSessionData(JSON.parse(raw));
+    } catch {}
   }, []);
 
   function handleLogout() {
     localStorage.removeItem("vetuno_demo");
+    localStorage.removeItem("vetuno_session");
     router.push("/login");
   }
 
@@ -341,9 +347,9 @@ function AdminDashboardLayoutInner({
                 className="h-8 w-8 rounded-full flex items-center justify-center text-sm font-semibold"
                 style={{ backgroundColor: branding.primaryColor + "1A", color: branding.primaryColor }}
               >
-                AV
+                {sessionData?.adminName ? sessionData.adminName.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join("") : "AV"}
               </div>
-              <span className="hidden text-sm font-medium text-text md:block">Admin Vetuno</span>
+              <span className="hidden text-sm font-medium text-text md:block">{sessionData?.adminName || "Admin Vetuno"}</span>
             </div>
           </div>
         </header>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useClinicBranding } from "../ClinicBrandingContext";
 
 const mockAuthorizations = [
   {
@@ -111,6 +112,7 @@ const statusColors: Record<string, string> = {
 
 export default function AutorizacionesPage() {
   const [expanded, setExpanded] = useState<string | null>("AUT-019");
+  const { branding } = useClinicBranding();
 
   return (
     <div className="space-y-6">
@@ -173,9 +175,24 @@ export default function AutorizacionesPage() {
                 <div className="mx-auto max-w-2xl rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   {/* Document header */}
                   <div className="mb-6 border-b border-gray-200 pb-4 text-center">
-                    <h3 className="text-lg font-bold text-teal">Vetuno</h3>
+                    <div className="flex items-center justify-center gap-2">
+                      {branding.logo ? (
+                        <img src={branding.logo} alt="" className="h-6 w-6 rounded object-contain" />
+                      ) : (
+                        <span
+                          className="flex h-6 w-6 items-center justify-center rounded text-[10px] font-bold text-white"
+                          style={{ backgroundColor: branding.primaryColor }}
+                        >
+                          {branding.name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("")}
+                        </span>
+                      )}
+                      <h3 className="text-lg font-bold" style={{ color: branding.primaryColor }}>{branding.name}</h3>
+                    </div>
                     <p className="mt-1 text-sm font-semibold text-text">{auth.type}</p>
-                    <p className="text-xs text-text-light">Clínica PetSalud — Bogotá, Colombia</p>
+                    <p className="text-xs text-text-light">{branding.name} — {branding.city}, Colombia</p>
+                    {(branding.phone || branding.email) && (
+                      <p className="mt-0.5 text-xs text-text-light">{[branding.phone, branding.email].filter(Boolean).join(" · ")}</p>
+                    )}
                   </div>
                   {/* Info */}
                   <div className="mb-4 grid grid-cols-2 gap-4 text-sm">

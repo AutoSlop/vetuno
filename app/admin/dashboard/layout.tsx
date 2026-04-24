@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { ClinicBrandingProvider, useClinicBranding } from "./ClinicBrandingContext";
 
 const navItems = [
   { href: "/admin/dashboard", label: "Inicio", icon: "home", enabled: true, demoOnly: false },
@@ -18,6 +19,7 @@ const navItems = [
   { href: "/admin/dashboard/mi-membresia", label: "Mi membresía", icon: "badge", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/membresia", label: "Membresía clínica", icon: "card", enabled: false, demoOnly: true },
   { href: "/admin/dashboard/configuracion", label: "Configuración", icon: "settings", enabled: true, demoOnly: false },
+  { href: "/admin/dashboard/identidad", label: "Identidad clínica", icon: "palette", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/reportes", label: "Reportes", icon: "chart", enabled: true, demoOnly: false },
 ];
 
@@ -44,6 +46,8 @@ function NavIcon({ icon, className }: { icon: string; className?: string }) {
       return <svg className={cn} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>;
     case "shield":
       return <svg className={cn} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>;
+    case "palette":
+      return <svg className={cn} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" /></svg>;
     case "chart":
       return <svg className={cn} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>;
     default:
@@ -66,6 +70,7 @@ const breadcrumbLabels: Record<string, string> = {
   autorizaciones: "Autorizaciones",
   membresia: "Membresía clínica",
   reportes: "Reportes",
+  identidad: "Identidad de la clínica",
 };
 
 function Breadcrumbs({ pathname }: { pathname: string }) {
@@ -100,10 +105,23 @@ export default function AdminDashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  return (
+    <ClinicBrandingProvider>
+      <AdminDashboardLayoutInner>{children}</AdminDashboardLayoutInner>
+    </ClinicBrandingProvider>
+  );
+}
+
+function AdminDashboardLayoutInner({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDemo, setIsDemo] = useState(false);
+  const { branding, initials } = useClinicBranding();
 
   useEffect(() => {
     setIsDemo(localStorage.getItem("vetuno_demo") === "true");
@@ -143,8 +161,20 @@ export default function AdminDashboardLayout({
       >
         {/* Sidebar header */}
         <div className="flex h-16 items-center justify-between border-b border-gray-200 px-6">
-          <Link href="/admin/dashboard" className="text-xl font-bold text-teal">
-            Vetuno
+          <Link href="/admin/dashboard" className="flex items-center gap-2">
+            {branding.logo ? (
+              <img src={branding.logo} alt={branding.name} className="h-8 w-8 rounded-md object-contain" />
+            ) : (
+              <span
+                className="flex h-8 w-8 items-center justify-center rounded-md text-xs font-bold text-white"
+                style={{ backgroundColor: branding.primaryColor }}
+              >
+                {initials}
+              </span>
+            )}
+            <span className="text-lg font-bold" style={{ color: branding.primaryColor }}>
+              {branding.name.length > 16 ? branding.name.slice(0, 16) + "…" : branding.name}
+            </span>
           </Link>
           <div className="flex items-center gap-2">
             {isDemo && (
@@ -168,9 +198,10 @@ export default function AdminDashboardLayout({
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
                   isActive(item.href)
-                    ? "bg-teal/10 text-teal"
+                    ? "bg-teal/10"
                     : "text-text-light hover:bg-gray-100 hover:text-text"
                 }`}
+                style={isActive(item.href) ? { color: branding.primaryColor } : undefined}
               >
                 <NavIcon icon={item.icon} />
                 {item.label}
@@ -243,10 +274,14 @@ export default function AdminDashboardLayout({
             <h2 className="hidden text-sm font-medium text-text-light sm:block">Portal Administrativo</h2>
             {/* Clinic selector badge */}
             <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5">
-              <svg className="h-4 w-4 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
-              </svg>
-              <span className="text-xs font-medium text-text">Clínica PetSalud</span>
+              {branding.logo ? (
+                <img src={branding.logo} alt="" className="h-4 w-4 rounded object-contain" />
+              ) : (
+                <svg className="h-4 w-4" style={{ color: branding.primaryColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" />
+                </svg>
+              )}
+              <span className="text-xs font-medium text-text">{branding.name}</span>
               <svg className="h-3.5 w-3.5 text-text-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>

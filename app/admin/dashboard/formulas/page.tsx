@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useClinicBranding } from "../ClinicBrandingContext";
 
 const mockFormulas = [
   {
@@ -73,6 +74,7 @@ const mockFormulas = [
 
 export default function FormulasPage() {
   const [expanded, setExpanded] = useState<string | null>("FRM-024");
+  const { branding } = useClinicBranding();
 
   return (
     <div className="space-y-6">
@@ -121,9 +123,24 @@ export default function FormulasPage() {
                 <div className="mx-auto max-w-2xl rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   {/* Document header */}
                   <div className="mb-6 border-b border-gray-200 pb-4 text-center">
-                    <h3 className="text-lg font-bold text-teal">Vetuno</h3>
-                    <p className="text-xs text-text-light">Fórmula veterinaria — Clínica PetSalud, Bogotá</p>
+                    <div className="flex items-center justify-center gap-2">
+                      {branding.logo ? (
+                        <img src={branding.logo} alt="" className="h-6 w-6 rounded object-contain" />
+                      ) : (
+                        <span
+                          className="flex h-6 w-6 items-center justify-center rounded text-[10px] font-bold text-white"
+                          style={{ backgroundColor: branding.primaryColor }}
+                        >
+                          {branding.name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]?.toUpperCase()).join("")}
+                        </span>
+                      )}
+                      <h3 className="text-lg font-bold" style={{ color: branding.primaryColor }}>{branding.name}</h3>
+                    </div>
+                    <p className="text-xs text-text-light">Fórmula veterinaria — {branding.name}, {branding.city}</p>
                     <p className="mt-1 text-xs text-text-light">NIT: 901.234.567-8 · Reg. ICA: VET-BOG-2024-0156</p>
+                    {(branding.phone || branding.email) && (
+                      <p className="mt-0.5 text-xs text-text-light">{[branding.phone, branding.email].filter(Boolean).join(" · ")}</p>
+                    )}
                   </div>
                   {/* Patient & vet info */}
                   <div className="mb-4 grid grid-cols-2 gap-4 text-sm">
@@ -159,7 +176,7 @@ export default function FormulasPage() {
                   {/* Footer */}
                   <div className="border-t border-gray-200 pt-4 text-center">
                     <p className="text-xs text-text-light">Fecha de emisión: {f.date} · {f.id}</p>
-                    <p className="mt-1 text-xs text-text-light">Documento generado digitalmente por Vetuno</p>
+                    <p className="mt-1 text-xs text-text-light">Documento generado digitalmente por {branding.name} · Vetuno</p>
                   </div>
                 </div>
                 {/* Action buttons */}

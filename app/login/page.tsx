@@ -10,6 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [remember, setRemember] = useState(false);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -144,6 +145,19 @@ export default function LoginPage() {
                 />
               </div>
 
+              <div className="flex items-center gap-2">
+                <input
+                  id="remember"
+                  type="checkbox"
+                  checked={remember}
+                  onChange={(e) => setRemember(e.target.checked)}
+                  className="h-4 w-4 rounded border-gray-300 text-teal accent-teal"
+                />
+                <label htmlFor="remember" className="text-sm text-text-light">
+                  Recordarme
+                </label>
+              </div>
+
               {error && <p className="text-sm text-red-600">{error}</p>}
 
               <button
@@ -155,9 +169,17 @@ export default function LoginPage() {
               </button>
             </form>
 
-            <div className="mt-4 text-center">
+            <div className="mt-4 flex items-center justify-between">
               <a href="#" className="text-sm text-teal hover:underline">
                 ¿Olvidaste tu contraseña?
+              </a>
+              <a
+                href="https://wa.me/573145553305"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-text-light hover:text-teal transition"
+              >
+                Ver demo
               </a>
             </div>
           </div>

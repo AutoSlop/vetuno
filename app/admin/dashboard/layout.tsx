@@ -45,6 +45,42 @@ function NavIcon({ icon, className }: { icon: string; className?: string }) {
   }
 }
 
+const breadcrumbLabels: Record<string, string> = {
+  dashboard: "Dashboard",
+  usuarios: "Usuarios",
+  pacientes: "Pacientes",
+  membresias: "Membresías",
+  "mi-membresia": "Mi membresía",
+  configuracion: "Configuración",
+};
+
+function Breadcrumbs({ pathname }: { pathname: string }) {
+  const segments = pathname.replace("/admin/dashboard", "").split("/").filter(Boolean);
+  if (segments.length === 0) return null;
+
+  return (
+    <nav className="mb-4 flex items-center gap-1.5 text-sm text-text-light">
+      <Link href="/admin/dashboard" className="hover:text-teal transition">
+        Dashboard
+      </Link>
+      {segments.map((seg, i) => (
+        <span key={seg} className="flex items-center gap-1.5">
+          <svg className="h-3.5 w-3.5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+          {i === segments.length - 1 ? (
+            <span className="font-medium text-text">{breadcrumbLabels[seg] || seg}</span>
+          ) : (
+            <Link href={`/admin/dashboard/${segments.slice(0, i + 1).join("/")}`} className="hover:text-teal transition">
+              {breadcrumbLabels[seg] || seg}
+            </Link>
+          )}
+        </span>
+      ))}
+    </nav>
+  );
+}
+
 export default function AdminDashboardLayout({
   children,
 }: {
@@ -172,6 +208,17 @@ export default function AdminDashboardLayout({
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Search */}
+            <div className="relative hidden sm:block">
+              <svg className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Buscar..."
+                className="w-48 rounded-lg border border-gray-200 bg-gray-50 py-1.5 pl-9 pr-3 text-sm text-text outline-none transition placeholder:text-gray-400 focus:border-teal focus:bg-white focus:ring-1 focus:ring-teal/20 lg:w-56"
+              />
+            </div>
             {/* Notification bell */}
             <button className="relative p-2 text-text-light hover:text-text transition">
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -190,7 +237,11 @@ export default function AdminDashboardLayout({
         </header>
 
         {/* Page content */}
-        <main className="flex-1 p-4 lg:p-8">{children}</main>
+        <main className="flex-1 p-4 lg:p-8">
+          {/* Breadcrumbs */}
+          <Breadcrumbs pathname={pathname} />
+          {children}
+        </main>
       </div>
     </div>
   );

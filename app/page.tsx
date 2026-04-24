@@ -1,5 +1,4 @@
 import Link from "next/link";
-import DemoRequestForm from "./components/DemoRequestForm";
 
 function CheckIcon() {
   return (
@@ -65,11 +64,28 @@ export default function Home() {
                   Ver planes
                 </Link>
               </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-white p-8 shadow-sm text-center flex flex-col items-center justify-center">
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-teal/10">
+                <svg className="h-8 w-8 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                </svg>
+              </div>
+              <h3 className="mb-2 text-xl font-bold text-text">¿Listo para conocer Vetuno?</h3>
+              <p className="mb-6 text-text-light">Agenda una demo personalizada y te mostramos cómo organizar tu clínica veterinaria.</p>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2 rounded-full bg-teal px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
+              >
+                Solicitar demo
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
               <p className="mt-4 text-sm text-text-light">
                 14 días de prueba gratis &middot; Sin tarjeta de crédito
               </p>
             </div>
-            <DemoRequestForm />
           </div>
         </div>
       </section>
@@ -141,51 +157,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ PROBLEMA / SOLUCIÓN ═══ */}
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="mb-12 text-center text-2xl font-bold text-text md:text-3xl">
-            ¿Tu clínica todavía depende de papel, Excel y WhatsApp?
-          </h2>
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-            <div className="rounded-2xl border border-red-200/60 bg-red-50/40 p-8 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-red-700">Sin Vetuno</h3>
-              <ul className="space-y-3 text-red-700/80">
-                {[
-                  "Historias clínicas en cuadernos o archivos sueltos",
-                  "Citas coordinadas por WhatsApp y memoria",
-                  "Fórmulas sin respaldo y documentos extraviados",
-                  "Tiempo perdido entre papel, Excel y WhatsApp",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg className="mt-0.5 h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-teal/20 bg-teal/5 p-8 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-teal">Con Vetuno</h3>
-              <ul className="space-y-3 text-teal-dark">
-                {[
-                  "Todo el expediente clínico digital y centralizado",
-                  "Agenda de citas organizada y visible para todo el equipo",
-                  "Fórmulas y autorizaciones en PDF, siempre disponibles",
-                  "Una sola plataforma simple que tu equipo adopta rápido",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckIcon />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ═══ RESUMEN DEL PRODUCTO ═══ */}
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6 text-center">
@@ -195,7 +166,7 @@ export default function Home() {
           <p className="mx-auto mt-4 max-w-2xl text-lg text-text-light">
             Historia clínica digital, agenda de citas, perfil unificado de mascota y tutor, fórmulas en PDF y autorizaciones — sin complejidad, sin curva de aprendizaje.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/producto"
               className="inline-flex items-center gap-2 rounded-full bg-teal px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
@@ -205,37 +176,41 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
+            <Link
+              href="/modulos"
+              className="rounded-full border-2 border-teal px-8 py-3.5 text-base font-semibold text-teal transition hover:bg-teal hover:text-white active:bg-teal-dark"
+            >
+              Ver funcionalidades
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ═══ CTA FINAL ═══ */}
       <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid items-start gap-12 md:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-extrabold text-text md:text-4xl">
-                Solicita una demo para tu clínica
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-text-light">
-                Descubre en 20 minutos cómo Vetuno puede simplificar la operación de tu veterinaria. Sin compromiso y con acompañamiento.
-              </p>
-              <ul className="mt-8 space-y-3">
-                <li className="flex items-center gap-3 text-text-light">
-                  <CheckIcon />
-                  Demo personalizada de 20 minutos
-                </li>
-                <li className="flex items-center gap-3 text-text-light">
-                  <CheckIcon />
-                  14 días de prueba gratis
-                </li>
-                <li className="flex items-center gap-3 text-text-light">
-                  <CheckIcon />
-                  Onboarding acompañado
-                </li>
-              </ul>
-            </div>
-            <DemoRequestForm />
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-3xl font-extrabold text-text md:text-4xl">
+            Solicita una demo para tu clínica
+          </h2>
+          <p className="mt-4 text-lg leading-relaxed text-text-light">
+            Descubre en 20 minutos cómo Vetuno puede simplificar la operación de tu veterinaria. Sin compromiso y con acompañamiento.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center gap-2 rounded-full bg-teal px-8 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-teal-dark active:shadow-none"
+            >
+              Solicitar demo
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/precios"
+              className="rounded-full border-2 border-teal px-8 py-3.5 text-base font-semibold text-teal transition hover:bg-teal hover:text-white active:bg-teal-dark"
+            >
+              Ver planes y precios
+            </Link>
           </div>
         </div>
       </section>

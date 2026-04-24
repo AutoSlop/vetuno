@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MembershipCard from "../../components/MembershipCard";
+import OnboardingStatus from "../../components/OnboardingStatus";
 
 const kpis = [
   { label: "Citas del día", value: "18", change: "4 pendientes", color: "bg-teal/10 text-teal" },
@@ -44,6 +45,9 @@ export default function AdminDashboard() {
         <h1 className="text-2xl font-bold text-text">Panel de control</h1>
         <p className="mt-1 text-sm text-text-light">Resumen general de la plataforma Vetuno</p>
       </div>
+
+      {/* Onboarding Status */}
+      <OnboardingStatus />
 
       {/* KPI Cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

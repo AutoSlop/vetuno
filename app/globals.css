@@ -2,20 +2,20 @@
 
 :root {
   --color-teal: #0F4C5C;
-  --color-teal-dark: #0C3D4A;
-  --color-orange: #6FA3B8;
-  --color-orange-dark: #5A8DA2;
-  --color-bg: #F6F8FA;
-  --color-text: #16242B;
-  --color-text-light: #4B5B63;
+  --color-teal-dark: #0C3E4B;
+  --color-orange: #5F7D8A;
+  --color-orange-dark: #4E6B77;
+  --color-bg: #F7F9F8;
+  --color-text: #16252B;
+  --color-text-light: #52636B;
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #1da851;
-  --color-border: #D7E0E5;
-  --color-bg-alt: #EEF3F6;
-  --color-accent: #6FA3B8;
-  --color-accent-soft: #DCEAF0;
+  --color-border: #D7E0DD;
+  --color-bg-alt: #EEF3F2;
+  --color-accent: #A8C3B0;
+  --color-accent-soft: #E2EDE5;
   --color-success: #DDEFE7;
-  --color-footer-bg: #16242B;
+  --color-footer-bg: #16252B;
   --color-footer-text: #CBD5E1;
 }
 

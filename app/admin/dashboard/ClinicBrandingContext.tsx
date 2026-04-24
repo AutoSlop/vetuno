@@ -17,7 +17,7 @@ const defaultBranding: ClinicBranding = {
   name: "Clínica PetSalud",
   logo: "",
   primaryColor: "#0F4C5C",
-  secondaryColor: "#6FA3B8",
+  secondaryColor: "#5F7D8A",
   phone: "601 234 5678",
   email: "info@petsalud.co",
   address: "Cra 15 #85-20, Consultorio 302",

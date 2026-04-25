@@ -17,7 +17,7 @@ const navItems = [
   { href: "/admin/dashboard/autorizaciones", label: "Autorizaciones", icon: "shield", enabled: false, demoOnly: true },
   { href: "/admin/dashboard/membresias", label: "Membresías", icon: "card", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/mi-membresia", label: "Mi membresía", icon: "badge", enabled: true, demoOnly: false },
-  { href: "/admin/dashboard/membresia", label: "Membresía clínica", icon: "card", enabled: false, demoOnly: true },
+  { href: "/admin/dashboard/membresia", label: "Membresía clínica", icon: "card", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/configuracion", label: "Configuración", icon: "settings", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/identidad", label: "Identidad clínica", icon: "palette", enabled: true, demoOnly: false },
   { href: "/admin/dashboard/reportes", label: "Reportes", icon: "chart", enabled: true, demoOnly: false },

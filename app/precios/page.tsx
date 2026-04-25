@@ -102,16 +102,14 @@ export default function PreciosPage() {
                   ))}
                 </ul>
                 <a
-                  href="https://wa.me/573145553305"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/registro"
                   className={`mt-8 block rounded-xl py-3 text-center font-semibold transition ${
                     plan.highlighted
                       ? "bg-teal text-white shadow-sm hover:bg-teal-dark active:shadow-none"
                       : "border-2 border-teal text-teal hover:bg-teal hover:text-white active:bg-teal-dark"
                   }`}
                 >
-                  Solicitar demo
+                  Empezar prueba gratis
                 </a>
               </div>
             ))}
